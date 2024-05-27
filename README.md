@@ -35,6 +35,7 @@
   2. Navigate to Settings
   3. Click "Pages"
   4. Change the "Source" dropdown to be GitHub Actions
+  5. Change the URL in 404.html for the not found to your site
 
 
 

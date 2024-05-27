@@ -26,8 +26,8 @@ export const SideBar = () => {
       icon: <Link to="/router">About Router</Link>,
     },
     {
-      key: '/antd',
-      icon: <Link to="/antd">About Antd</Link>
+      key: '/notfound',
+      icon: <Link to="/notfound">Not Found</Link>
     }
   ]
 

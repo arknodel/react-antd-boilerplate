@@ -9,17 +9,14 @@ module.exports = {
     minimize: true,
     minimizer: [
       new TerserPlugin(),
-    ],
+    ]
   },
   entry: {
     index: [path.resolve(__dirname, 'src/index')],
   },
   output: {
     path: path.resolve(__dirname, '_dist'),
-    chunkFilename: (pathData) => {
-      return pathData.chunk.name === 'main' ? '[name].js' : '[name]/[hash:8].js';
-    }
-    // filename: '[name]_[hash:8].js',
+    filename: '[name].[contenthash].js'
   },
   // webpack 5 comes with devServer which loads in development mode
   devServer: {
@@ -65,7 +62,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)/i,
-        use: 'file-loader?name=img_[hash:8].[ext]',
+        use: 'file-loader?name=img_[contenthash].[ext]',
       },
       {
         test: /\.(ttf|eot|svg|woff|woff2)/,
@@ -85,7 +82,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
       favicon: path.resolve(__dirname, 'src/favicon.ico'),
-      inject: false,
+      inject: "body",
+      chunks: ['index'],
       minify: {
         html5: true,
         collapseWhitespace: true,
@@ -96,5 +94,21 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
       }
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/404.html'),
+      favicon: path.resolve(__dirname, 'src/favicon.ico'),
+      inject: "body",
+      filename: '404.html',
+      chunks: [],
+      minify: {
+        html5: true,
+        collapseWhitespace: true,
+        // conservativeCollapse: true,
+        removeComments: true,
+        removeTagWhitespace: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+      }
+    })
   ],
 };

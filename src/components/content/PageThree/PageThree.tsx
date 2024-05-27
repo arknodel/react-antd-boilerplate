@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import {Base} from '../base/Base';
+import React, { useContext, useEffect } from 'react';
+import {BaseContext} from '../../base/Base';
 
 export const WebpackPage = () => {
+  const baseContext = useContext(BaseContext);
+  useEffect(() => baseContext.setTitle('About Webpack'));
   const code = `
   var HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -55,20 +57,20 @@ export const WebpackPage = () => {
       `;
 
   return (
-    <Base title='About Webpack'>
-      <div>
-        <div className="margin-bottom-md">
-          webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
-        </div>
-        <div className="margin-bottom-md">
-          Browse the contents in the left sidebar.
-        </div>
-        <div className="margin-bottom-md">
-          If you are new to webpack, you may want to start by reading this page or the Getting started section on the left.
-        </div>
-
-        <pre>{code}</pre>
+    <div>
+      <div className="margin-bottom-md">
+        webpack is a bundler for modules. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
       </div>
-    </Base>
+      <div className="margin-bottom-md">
+        Browse the contents in the left sidebar.
+      </div>
+      <div className="margin-bottom-md">
+        If you are new to webpack, you may want to start by reading this page or the Getting started section on the left.
+      </div>
+
+      <pre>{code}</pre>
+    </div>
   );
 }
+
+export default WebpackPage;

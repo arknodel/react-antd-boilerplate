@@ -1,10 +1,14 @@
-import React, { Component, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Button
 } from 'antd';
 import classNames from 'classnames';
+import { BaseContext } from '../../base/Base';
+import './home.css';
 
 export const StartPage = () => {
+  const baseContext = useContext(BaseContext);
+  useEffect(() => baseContext.setTitle('Start'));
   const [state, setState] = useState({colorStatus: true});
 
   const handleChangeColor = () => {

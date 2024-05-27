@@ -1,9 +1,9 @@
 var webpack = require('webpack');
 var merge = require('@ersinfotech/merge');
 
-var webpackConfig = require('./webpack.config');
-
 process.env.NODE_ENV = 'development';
+
+var webpackConfig = require('./webpack.config');
 
 module.exports = merge(webpackConfig, {
   devtool: 'inline-source-map',

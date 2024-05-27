@@ -2,9 +2,9 @@ var webpack = require('webpack');
 var merge = require('@ersinfotech/merge');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-var webpackConfig = require('./webpack.config');
-
 process.env.NODE_ENV = 'production';
+
+var webpackConfig = require('./webpack.config');
 
 module.exports = merge(webpackConfig, {
   module: {

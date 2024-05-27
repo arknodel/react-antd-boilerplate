@@ -8,19 +8,22 @@ import {
 import Header from '../header/Header';
 import {SideBar} from '../sidebar/Sidebar';
 import './base.css';
-import { useLocation } from 'react-router-dom';
 import { Loading } from '../common/Loading';
+import { createContext } from "react";
+import { IBaseDisplaySettings } from "./BaseState";
+import { Outlet } from 'react-router';
+
+export const BaseContext = createContext<IBaseDisplaySettings>({setTitle: () => {}, title: 'Loading'});
 
 interface IBaseProps extends PropsWithChildren {
-  title: string;
 }
 
 export const Base = ({
-  children,
-  title
+  children
 }: IBaseProps) => {
+  const [baseTitle, setBaseTitle] = React.useState<string>('Loading');
   return (
-    <Suspense fallback={<Loading />}>
+    <BaseContext.Provider value={{setTitle: setBaseTitle, title: baseTitle}}>
       <Row>
         <Col span={4}>
           <SideBar />
@@ -29,13 +32,15 @@ export const Base = ({
           <Header />
           <div className="padding-lg content-container">
             <div className="margin-bottom-md">
-              <h1>{title}</h1>
+              <h1>{baseTitle}</h1>
             </div>
-            {children}
+            <Suspense fallback={<Loading />}>
+              <Outlet />
+            </Suspense>
           </div>
         </Col>
       </Row>
-    </Suspense>
+    </BaseContext.Provider>
   );
 }
 
