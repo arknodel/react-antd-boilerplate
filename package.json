@@ -1,5 +1,5 @@
 {
-  "name": "SportsScheduling",
+  "name": "react-antd-boilerplate",
   "version": "0.1.0",
   "private": false,
   "main": "server.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arknodel/SportsScheduling.git"
+    "url": "https://github.com/arknodel/react-antd-boilerplate.git"
   },
   "license": "MIT",
   "devDependencies": {
