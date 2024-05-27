@@ -87,7 +87,6 @@ module.exports = {
       minify: {
         html5: true,
         collapseWhitespace: true,
-        // conservativeCollapse: true,
         removeComments: true,
         removeTagWhitespace: true,
         removeEmptyAttributes: true,
@@ -103,7 +102,6 @@ module.exports = {
       minify: {
         html5: true,
         collapseWhitespace: true,
-        // conservativeCollapse: true,
         removeComments: true,
         removeTagWhitespace: true,
         removeEmptyAttributes: true,

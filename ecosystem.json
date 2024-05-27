@@ -1,6 +1,6 @@
 {
   "apps": [{
-    "name": "react-start-kit",
+    "name": "react-antd-boilerplate",
     "script": "index.js",
     "log_date_format": "YYYY-MM-DD HH:mm:ss"
   }],
@@ -8,17 +8,17 @@
     "stage" : {
       "user" : "deploy",
       "host" : "https://github.com",
-      "ref"  : "origin/master",
-      "repo" : "git@github.com:jovey-zheng/react-start-kit.git",
-      "path" : "~/react-start-kit",
+      "ref"  : "origin/main",
+      "repo" : "git@github.com:arknodel/react-antd-boilerplate.git",
+      "path" : "~/react-antd-boilerplate",
       "post-deploy" : "npm i && npm run build"
     },
     "production" : {
       "user" : "deploy",
       "host" : "https://github.com",
-      "ref"  : "origin/master",
-      "repo" : "git@github.com:jovey-zheng/react-start-kit.git",
-      "path" : "~/react-start-kit",
+      "ref"  : "origin/main",
+      "repo" : "git@github.com:arknodel/react-antd-boilerplate.git",
+      "path" : "~/react-antd-boilerplate",
       "post-deploy" : "npm i && npm run build"
     }
   }
