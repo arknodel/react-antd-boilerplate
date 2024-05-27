@@ -1,5 +1,6 @@
 
 ## Getting started
+  You can see a demo of the site hosted here: https://arknodel.github.io/react-antd-boilerplate/
 
   1. Clone this repo:
   ```
