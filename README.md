@@ -3,7 +3,7 @@
 
   1. Clone this repo:
   ```
-  $ git clone https://github.com/jovey-zheng/react-start-kit.git
+  $ git clone https://github.com/arknodel/react-antd-boilerplate.git
   ```
 
   2. Install dependenices:
@@ -34,7 +34,7 @@
   2. Navigate to Settings
   3. Click "Pages"
   4. Change the "Source" dropdown to be GitHub Actions
-  
+
 
 
 ## Contributing
