@@ -10,7 +10,7 @@ import './base.css';
 import { Loading } from '../common/Loading';
 import { createContext } from "react";
 import { IBaseDisplaySettings } from "./BaseState";
-import { Outlet, useNavigate } from 'react-router';
+import { Outlet, useHref, useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
 
 export const BaseContext = createContext<IBaseDisplaySettings>({setTitle: () => {}, title: 'Loading'});
@@ -23,13 +23,14 @@ export const Base = ({
   const [baseTitle, setBaseTitle] = React.useState<string>('Loading');
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const basename = useHref("");
 
   useEffect(() => {
     const fromPage = searchParams.get("from");
     if (fromPage) {
       const url = new URL(fromPage);
       if (url.hostname === window.location.hostname) {
-        navigate(url.pathname + url.search, { replace: true, relative: "path" });
+        navigate(url.pathname.replace(basename, '') + url.search, { replace: true, relative: "path" });
       } else {
         navigate("/notfound" + searchParams.toString(), { replace: true, relative: "path" });
       }
