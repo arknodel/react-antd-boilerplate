@@ -1,10 +1,11 @@
 import { useContext, useEffect } from 'react';
 import {BaseContext} from '../../base/Base';
-import { redirect, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 export const NotFoundPage = () => {
   const baseContext = useContext(BaseContext);
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   useEffect(() => {
     baseContext.setTitle('Not Found');
 
@@ -12,10 +13,10 @@ export const NotFoundPage = () => {
     if (fromPage) {
       const url = new URL(fromPage);
       if (url.hostname === window.location.hostname) {
-        redirect(url.pathname + url.search);
+        navigate(url.pathname + url.search, { replace: true });
       }
     }
-  }, [searchParams]);
+  }, [searchParams, navigate]);
   return (
     <div>
       <span>Unable to find the page you're looking for.</span>
