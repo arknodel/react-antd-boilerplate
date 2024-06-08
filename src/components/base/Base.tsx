@@ -1,5 +1,4 @@
-import React, { Component, PropsWithChildren, Suspense } from 'react';
-import { get } from 'lodash';
+import React, { Suspense } from 'react';
 import {
   Row,
   Col
@@ -15,11 +14,10 @@ import { Outlet } from 'react-router';
 
 export const BaseContext = createContext<IBaseDisplaySettings>({setTitle: () => {}, title: 'Loading'});
 
-interface IBaseProps extends PropsWithChildren {
+interface IBaseProps {
 }
 
 export const Base = ({
-  children
 }: IBaseProps) => {
   const [baseTitle, setBaseTitle] = React.useState<string>('Loading');
   return (

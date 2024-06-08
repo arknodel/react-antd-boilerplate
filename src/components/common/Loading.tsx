@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import {LoadingOutlined} from '@ant-design/icons';
 import { Property } from 'csstype'
 

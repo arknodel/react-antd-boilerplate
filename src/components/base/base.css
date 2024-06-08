@@ -43,7 +43,7 @@
 .text-center {
   text-align: center;
 }
-.clearfix() {
+/* .clearfix() {
   &:before,
   &:after {
     content: " ";
@@ -52,7 +52,7 @@
   &:after {
     clear: both;
   }
-}
+} */
 .pull-left {
   float: left !important;
 }
