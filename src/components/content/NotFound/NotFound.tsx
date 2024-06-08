@@ -13,7 +13,7 @@ export const NotFoundPage = () => {
     if (fromPage) {
       const url = new URL(fromPage);
       if (url.hostname === window.location.hostname) {
-        navigate(url.pathname + url.search, { replace: true });
+        navigate(url.pathname + url.search, { replace: true, relative: "path" });
       }
     }
   }, [searchParams, navigate]);

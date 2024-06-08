@@ -12,8 +12,8 @@ export const SideBar = () => {
       icon: <Link to="/">Start</Link>,
     },
     {
-      key: '/webpack',
-      icon: <Link to="/webpack">About Webpack</Link>,
+      key: '/vite',
+      icon: <Link to="/vite">About Vite</Link>,
     },
     {
       key: '/component',
