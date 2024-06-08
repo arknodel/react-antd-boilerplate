@@ -1,5 +1,5 @@
 import {
-  HashRouter
+  BrowserRouter
 } from "react-router-dom";
 import Routes from './routes';
 
@@ -8,8 +8,8 @@ import 'antd/dist/reset.css';
 
 export const App = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes />
-    </HashRouter>
+    </BrowserRouter>
   )
 };
