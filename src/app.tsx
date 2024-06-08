@@ -8,7 +8,7 @@ import 'antd/dist/reset.css';
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react-antd-boilerplate">
       <Routes />
     </BrowserRouter>
   )
