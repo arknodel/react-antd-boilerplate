@@ -14,15 +14,10 @@
 
   3. Start the project:
   ```
-  $ npm start               // default port is 3000
-  $ PORT=80 npm start       // using `PORT` to customize port in the CLI
+  $ npm run dev
   ```
 
-  4. Access browser: [http://localhost:3000](http://localhost:3000). Or start with [`minihost`](https://www.npmjs.com/package/minihost):
-    ```
-    h -n start npm start
-    ```
-    and then access: [http://start.t.t](http://start.t.t)
+  4. Follow link from command.
 
   5. Then do whatever you want : ).
 
