@@ -33,7 +33,7 @@ export const SideBar = () => {
   return (
     <div className="sidebar">
       <div className="padding-md text-center selectness border-normal">
-        <h1 className="sidebar-title">ReactStartKit</h1>
+        <h1 className="sidebar-title">React + Antd</h1>
       </div>
 
       <Menu

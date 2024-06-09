@@ -19,8 +19,6 @@
 
   4. Follow link from command.
 
-  5. Then do whatever you want : ).
-
 ## GitHub Pages
 
   Inside of .github is a YAML file to automatically deploy.
@@ -30,7 +28,7 @@
   2. Navigate to Settings
   3. Click "Pages"
   4. Change the "Source" dropdown to be GitHub Actions
-  5. Change the URL in 404.html for the not found to your site
+  5. Change the --base config in package.json/build to be your repo name
 
 
 
