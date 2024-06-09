@@ -7,7 +7,8 @@ import {
   Row,
   Col,
   Badge,
-  Tooltip
+  Tooltip,
+  Input
 } from 'antd';
 
 import './header.css';
@@ -21,17 +22,12 @@ export const Header = () => {
   }
 
   return (
-    <Row align="middle" className="container padding-lr-lg">
-      <Col span={2}>
-        <input
-          type="text"
-          placeholder="Search..."
-          className="header-search"
-          onKeyDown={handleSearch}
-        />
+    <Row>
+      <Col span={12}>
+        <Input placeholder='Search...' className="header-search" onKeyDown={handleSearch} />
       </Col>
 
-      <Col span={8} offset={14} className="pull-right">
+      <Col span={10} offset={2} style={{textAlign: 'right'}}>
         <Tooltip placement="bottom" title="Calendar">
           <CalendarOutlined className="padding-lr-md font-md pointer-hover" />
         </Tooltip>

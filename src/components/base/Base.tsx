@@ -1,7 +1,8 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import {
   Row,
-  Col
+  Col,
+  Layout
 } from 'antd';
 
 import Header from '../header/Header';
@@ -12,6 +13,8 @@ import { createContext } from "react";
 import { IBaseDisplaySettings } from "./BaseState";
 import { Outlet, useHref, useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
+import { Content } from 'antd/es/layout/layout';
+import Title from 'antd/es/typography/Title';
 
 export const BaseContext = createContext<IBaseDisplaySettings>({setTitle: () => {}, title: 'Loading'});
 
@@ -37,24 +40,25 @@ export const Base = ({
     }
   }, [ searchParams, navigate ]);
 
+  const [navBarCollapsed, setNavBarCollapsed] = useState(false);
   return (
     <BaseContext.Provider value={{setTitle: setBaseTitle, title: baseTitle}}>
-      <Row>
-        <Col span={4}>
+      <Layout hasSider>
+        <Layout.Sider theme='light' collapsible collapsed={navBarCollapsed} onCollapse={setNavBarCollapsed} onBreakpoint={setNavBarCollapsed} breakpoint='md'>
           <SideBar />
-        </Col>
-        <Col span={20} style={{marginLeft: 237}}>
-          <Header />
-          <div className="padding-lg content-container">
-            <div className="margin-bottom-md">
-              <h1>{baseTitle}</h1>
-            </div>
-            <Suspense fallback={<Loading />}>
-              <Outlet />
-            </Suspense>
-          </div>
-        </Col>
-      </Row>
+        </Layout.Sider>
+        <Layout>
+          <Layout.Header>
+            <Header />
+          </Layout.Header>
+          <Layout.Content>
+              <Title level={2}>{baseTitle}</Title>
+              <Suspense fallback={<Loading />}>
+                <Outlet />
+              </Suspense>
+          </Layout.Content>
+        </Layout>
+      </Layout>
     </BaseContext.Provider>
   );
 }
