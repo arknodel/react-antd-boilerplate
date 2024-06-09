@@ -7,14 +7,21 @@ const ComponentPage = React.lazy(() => import('./components/content/PageOne/Page
 const RouterPage = React.lazy(() => import('./components/content/PageTwo/PageTwo'));
 const NotFound = React.lazy(() => import('./components/content/NotFound/NotFound'));
 
+export const routeUrls = {
+  home: "/",
+  vite: "/vite",
+  component: "/component",
+  router: "/router"
+}
+
 export default () => {
   return (
     <Routes>
       <Route element={<Base />}>
         <Route index Component={StartPage} />
-        <Route path="/vite" Component={WebpackPage} />
-        <Route path="/component" Component={ComponentPage} />
-        <Route path="/router" Component={RouterPage} />
+        <Route path={routeUrls.vite} Component={WebpackPage} />
+        <Route path={routeUrls.component} Component={ComponentPage} />
+        <Route path={routeUrls.router} Component={RouterPage} />
         <Route path="*" Component={NotFound} />
       </Route>
     </Routes>

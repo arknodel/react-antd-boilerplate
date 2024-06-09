@@ -14,8 +14,8 @@ import './header.css';
 
 export const Header = () => {
 
-  const handleSearch = (e: any) => {
-    if (e.which === 13) {
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
       alert('Search function has not been added yet...')
     }
   }

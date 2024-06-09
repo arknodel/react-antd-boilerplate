@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu } from 'antd';
+import { routeUrls } from "../../routes";
 
 import './sidebar.css'
 
@@ -8,23 +9,23 @@ export const SideBar = () => {
   const location = useLocation();
   const items = [
     {
-      key: '/',
-      icon: <Link to="/">Start</Link>,
+      key: routeUrls.home,
+      icon: <Link to={routeUrls.home}>Start</Link>,
     },
     {
-      key: '/vite',
-      icon: <Link to="/vite">About Vite</Link>,
+      key: routeUrls.vite,
+      icon: <Link to={routeUrls.vite}>About Vite</Link>,
     },
     {
-      key: '/component',
-      icon: <Link to="/component">About Components</Link>,
+      key: routeUrls.component,
+      icon: <Link to={routeUrls.component}>About Components</Link>,
     },
     {
-      key: '/router',
-      icon: <Link to="/router">About Router</Link>,
+      key: routeUrls.router,
+      icon: <Link to={routeUrls.router}>About Router</Link>,
     },
     {
-      key: '/notfound',
+      key: '/notfound', // This URL doesn't exist and showcases handling 404s
       icon: <Link to="/notfound">Not Found</Link>
     }
   ]
