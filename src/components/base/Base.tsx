@@ -1,7 +1,5 @@
-import React, { Suspense, useCallback, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import {
-  Row,
-  Col,
   Layout
 } from 'antd';
 
@@ -13,7 +11,6 @@ import { createContext } from "react";
 import { IBaseDisplaySettings } from "./BaseState";
 import { Outlet, useHref, useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
-import { Content } from 'antd/es/layout/layout';
 import Title from 'antd/es/typography/Title';
 
 export const BaseContext = createContext<IBaseDisplaySettings>({setTitle: () => {}, title: 'Loading'});
