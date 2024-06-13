@@ -6,6 +6,7 @@ import Routes from './routes';
 import 'font-awesome/css/font-awesome.css';
 import 'antd/dist/reset.css';
 import { ConfigProvider, ThemeConfig } from "antd";
+import { StrictMode } from "react";
 
 const theme: ThemeConfig = {
   components: {
@@ -19,10 +20,12 @@ const theme: ThemeConfig = {
 
 export const App = () => {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <ConfigProvider theme={theme}>
-        <Routes />
-      </ConfigProvider>
-    </BrowserRouter>
+    <StrictMode>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <ConfigProvider theme={theme}>
+          <Routes />
+        </ConfigProvider>
+      </BrowserRouter>
+    </StrictMode>
   )
 };
