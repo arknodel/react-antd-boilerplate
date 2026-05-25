@@ -1,13 +1,16 @@
 import { use, useEffect } from 'react';
+import { Card, Col, Row, Tag, Typography } from 'antd';
 import { BaseContext } from '../../base/Base';
+
+const { Paragraph } = Typography;
 
 export const WebpackPage = () => {
   const { setTitle } = use(BaseContext);
   useEffect(() => setTitle('About Vite'), [setTitle]);
-  const code = `
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+
+  const code = `import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,24 +23,51 @@ export default defineConfig({
       },
     },
   },
-})
-      `;
+});`;
 
   return (
     <div>
-      <div className="margin-bottom-md">
-        Vite is a bundler for modules defined by vite.config.ts. The main purpose is to bundle JavaScript files for usage in a browser, yet it is also capable of transforming, bundling, or packaging just about any resource or asset.
-      </div>
-      <div className="margin-bottom-md">
-        Browse the contents in the left sidebar.
-      </div>
-      <div className="margin-bottom-md">
-        If you are new to vite, you may want to start by reading this page or the Getting started section on the left.
-      </div>
+      <Card style={{ marginBottom: 16 }}>
+        <Paragraph>
+          Vite is a next-generation frontend build tool that offers a dramatically faster development
+          experience. It leverages native ES modules for instant server start and lightning-fast HMR.
+        </Paragraph>
+        <Paragraph style={{ marginBottom: 0 }}>
+          Production builds use Rollup under the hood for highly optimized output with tree-shaking,
+          code splitting, and asset optimization built in — no configuration required.
+        </Paragraph>
+      </Card>
 
-      <pre>{code}</pre>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} sm={8}>
+          <Card size="small" title={<><Tag color="purple">Fast</Tag> Instant Start</>}>
+            <Paragraph style={{ marginBottom: 0 }}>
+              The dev server starts instantly regardless of app size — no bundling step required.
+            </Paragraph>
+          </Card>
+        </Col>
+        <Col xs={24} sm={8}>
+          <Card size="small" title="Hot Module Replacement">
+            <Paragraph style={{ marginBottom: 0 }}>
+              HMR stays fast as the app grows, with precise module invalidation and no full reloads.
+            </Paragraph>
+          </Card>
+        </Col>
+        <Col xs={24} sm={8}>
+          <Card size="small" title="Optimized Builds">
+            <Paragraph style={{ marginBottom: 0 }}>
+              Pre-configured Rollup with optimal chunk splitting, lazy loading, and minification.
+            </Paragraph>
+          </Card>
+        </Col>
+        <Col xs={24}>
+          <Card title="vite.config.ts">
+            <pre>{code}</pre>
+          </Card>
+        </Col>
+      </Row>
     </div>
   );
-}
+};
 
 export default WebpackPage;

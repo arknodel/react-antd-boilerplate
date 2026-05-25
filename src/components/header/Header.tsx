@@ -1,50 +1,50 @@
-import { 
-  CalendarOutlined, 
-  NotificationOutlined, 
-  SettingOutlined 
-} from '@ant-design/icons';
 import {
-  Row,
-  Col,
-  Badge,
-  Tooltip,
-  Input
-} from 'antd';
+  CalendarOutlined,
+  NotificationOutlined,
+  SettingOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { Avatar, Badge, Button, Col, Input, Row, Space, Tooltip } from 'antd';
 
 import './header.css';
 
 export const Header = () => {
-
-  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      alert('Search function has not been added yet...')
-    }
-  }
+  const handleSearch = () => {
+    alert('Search function has not been added yet...');
+  };
 
   return (
-    <Row>
-      <Col span={12}>
-        <Input placeholder='Search...' className="header-search" onKeyDown={handleSearch} />
+    <Row align="middle" style={{ height: '64px' }}>
+      <Col flex="auto">
+        <Input.Search
+          placeholder="Search..."
+          className="header-search"
+          onSearch={handleSearch}
+          allowClear
+        />
       </Col>
-
-      <Col span={10} offset={2} style={{textAlign: 'right'}}>
-        <Tooltip placement="bottom" title="Calendar">
-          <CalendarOutlined className="padding-lr-md font-md pointer-hover" />
-        </Tooltip>
-
-        <Tooltip placement="bottom" title="Notify">
-          <Badge dot className="padding-lr-md">
-            <NotificationOutlined className="font-md pointer-hover" />
-          </Badge>
-        </Tooltip>
-
-        <Tooltip placement="bottom" title="Set up">
-          <SettingOutlined className="padding-lr-md font-md pointer-hover" />
-        </Tooltip>
+      <Col flex="none">
+        <Space size="small" align="center" style={{ marginLeft: 16 }}>
+          <Tooltip placement="bottom" title="Calendar">
+            <Button type="text" icon={<CalendarOutlined />} />
+          </Tooltip>
+          <Tooltip placement="bottom" title="Notifications">
+            <Badge dot>
+              <Button type="text" icon={<NotificationOutlined />} />
+            </Badge>
+          </Tooltip>
+          <Tooltip placement="bottom" title="Settings">
+            <Button type="text" icon={<SettingOutlined />} />
+          </Tooltip>
+          <Avatar
+            size="small"
+            icon={<UserOutlined />}
+            style={{ backgroundColor: '#1677ff', cursor: 'pointer' }}
+          />
+        </Space>
       </Col>
-
     </Row>
   );
-}
+};
 
 export default Header;

@@ -1,19 +1,29 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Menu } from 'antd';
 import { routeUrls } from '../../routes';
-
-import './sidebar.css'
+import './sidebar.css';
 import { ItemType, MenuItemType } from 'antd/es/menu/interface';
-import { FileOutlined, AccountBookOutlined, AimOutlined, HomeOutlined, MinusCircleOutlined } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  BranchesOutlined,
+  CodeOutlined,
+  HomeOutlined,
+  QuestionCircleOutlined,
+  ThunderboltOutlined,
+} from '@ant-design/icons';
 
+interface SideBarProps {
+  collapsed: boolean;
+}
 
-export const SideBar = () => {
+export const SideBar = ({ collapsed }: SideBarProps) => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const items: ItemType<MenuItemType>[] = [
     {
       key: routeUrls.home,
-      label: 'Start',
+      label: 'Home',
       onClick: () => navigate(routeUrls.home),
       icon: <HomeOutlined />,
     },
@@ -21,43 +31,43 @@ export const SideBar = () => {
       key: routeUrls.vite,
       label: 'About Vite',
       onClick: () => navigate(routeUrls.vite),
-      icon: <AimOutlined />,
+      icon: <ThunderboltOutlined />,
     },
     {
       key: routeUrls.component,
       label: 'About Components',
       onClick: () => navigate(routeUrls.component),
-      icon: <AccountBookOutlined />,
+      icon: <AppstoreOutlined />,
     },
     {
       key: routeUrls.router,
       label: 'About Router',
       onClick: () => navigate(routeUrls.router),
-      icon: <FileOutlined />,
+      icon: <BranchesOutlined />,
     },
     {
-      key: '/notfound', // This URL doesn't exist and showcases handling 404s
+      key: '/notfound',
       label: 'Not Found',
       onClick: () => navigate('/notfound'),
-      icon: <MinusCircleOutlined />
-    }
-  ]
+      icon: <QuestionCircleOutlined />,
+    },
+  ];
 
   return (
     <div className="sidebar">
-      <div className="padding-md text-center selectness border-normal">
-        <h1 className="sidebar-title">React + Antd</h1>
+      <div className={`sidebar-logo${collapsed ? ' sidebar-logo-collapsed' : ''}`}>
+        <CodeOutlined className="sidebar-logo-icon" />
+        {!collapsed && <span className="sidebar-logo-text">React + Antd</span>}
       </div>
-
       <Menu
         theme="light"
-        selectedKeys={[`${location.pathname}`]}
+        selectedKeys={[location.pathname]}
         mode="inline"
-        className="padding-top-lg"
+        style={{ border: 'none', marginTop: 8 }}
         items={items}
       />
     </div>
   );
-}
+};
 
 export default SideBar;

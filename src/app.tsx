@@ -1,6 +1,4 @@
-import {
-  BrowserRouter
-} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
 
 import 'font-awesome/css/font-awesome.css';
@@ -9,14 +7,24 @@ import { ConfigProvider, ThemeConfig } from 'antd';
 import { StrictMode } from 'react';
 
 const theme: ThemeConfig = {
+  token: {
+    colorPrimary: '#1677ff',
+    borderRadius: 8,
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  },
   components: {
     Layout: {
-      headerBg: '#FFFFFF',
-      headerPadding: '0 10px',
-      bodyBg: '#FFFFFF',
-    }
-  }
-}
+      headerBg: '#ffffff',
+      headerPadding: '0 24px',
+      bodyBg: '#f0f2f5',
+      siderBg: '#ffffff',
+    },
+    Menu: {
+      itemBorderRadius: 6,
+      itemMarginInline: 4,
+    },
+  },
+};
 
 export const App = () => {
   return (
@@ -27,5 +35,5 @@ export const App = () => {
         </ConfigProvider>
       </BrowserRouter>
     </StrictMode>
-  )
+  );
 };

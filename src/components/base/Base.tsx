@@ -1,5 +1,5 @@
 import { Suspense, createContext, useEffect, useState } from 'react';
-import { Layout } from 'antd';
+import { Layout, Typography } from 'antd';
 
 import Header from '../header/Header';
 import { SideBar } from '../sidebar/Sidebar';
@@ -8,7 +8,6 @@ import { Loading } from '../common/Loading';
 import { IBaseDisplaySettings } from './BaseState';
 import { Outlet, useHref, useNavigate } from 'react-router';
 import { useSearchParams } from 'react-router-dom';
-import Title from 'antd/es/typography/Title';
 
 export const BaseContext = createContext<IBaseDisplaySettings>({ setTitle: () => {}, title: 'Loading' });
 
@@ -31,26 +30,39 @@ export const Base = () => {
   }, [searchParams, navigate, basename]);
 
   const [navBarCollapsed, setNavBarCollapsed] = useState(false);
+
   return (
     <BaseContext value={{ setTitle: setBaseTitle, title: baseTitle }}>
-      <Layout hasSider>
-        <Layout.Sider theme='light' collapsible collapsed={navBarCollapsed} onCollapse={setNavBarCollapsed} onBreakpoint={setNavBarCollapsed} breakpoint='md'>
-          <SideBar />
+      <Layout hasSider style={{ minHeight: '100vh' }}>
+        <Layout.Sider
+          theme='light'
+          collapsible
+          collapsed={navBarCollapsed}
+          onCollapse={setNavBarCollapsed}
+          onBreakpoint={setNavBarCollapsed}
+          breakpoint='md'
+          className="app-sider"
+        >
+          <SideBar collapsed={navBarCollapsed} />
         </Layout.Sider>
         <Layout>
-          <Layout.Header>
+          <Layout.Header className="app-header">
             <Header />
           </Layout.Header>
           <Layout.Content>
-            <Title level={2}>{baseTitle}</Title>
-            <Suspense fallback={<Loading />}>
-              <Outlet />
-            </Suspense>
+            <div className="page-header-bar">
+              <Typography.Title level={4} style={{ margin: 0 }}>{baseTitle}</Typography.Title>
+            </div>
+            <div className="page-body">
+              <Suspense fallback={<Loading />}>
+                <Outlet />
+              </Suspense>
+            </div>
           </Layout.Content>
         </Layout>
       </Layout>
     </BaseContext>
   );
-}
+};
 
 export default Base;
