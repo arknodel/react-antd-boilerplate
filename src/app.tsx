@@ -1,19 +1,19 @@
 import {
   BrowserRouter
-} from "react-router-dom";
+} from 'react-router-dom';
 import Routes from './routes';
 
 import 'font-awesome/css/font-awesome.css';
 import 'antd/dist/reset.css';
-import { ConfigProvider, ThemeConfig } from "antd";
-import { StrictMode } from "react";
+import { ConfigProvider, ThemeConfig } from 'antd';
+import { StrictMode } from 'react';
 
 const theme: ThemeConfig = {
   components: {
     Layout: {
-      headerBg: "#FFFFFF",
-      headerPadding: "0 10px",
-      bodyBg: "#FFFFFF",
+      headerBg: '#FFFFFF',
+      headerPadding: '0 10px',
+      bodyBg: '#FFFFFF',
     }
   }
 }

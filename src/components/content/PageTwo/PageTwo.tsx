@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import {BaseContext} from '../../base/Base';
+import { use, useEffect } from 'react';
+import { BaseContext } from '../../base/Base';
 
 export const RouterPage = () => {
-  const baseContext = useContext(BaseContext);
-  useEffect(() => baseContext.setTitle('About Router'));
+  const { setTitle } = use(BaseContext);
+  useEffect(() => setTitle('About Router'), [setTitle]);
   const code = `
   import React from 'react';
   import {Route} from 'react-router';

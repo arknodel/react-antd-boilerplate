@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import {BaseContext} from '../../base/Base';
+import { use, useEffect } from 'react';
+import { BaseContext } from '../../base/Base';
 
 export const ComponentPage = () => {
-  const baseContext = useContext(BaseContext);
-  useEffect(() => baseContext.setTitle('About Components'));
+  const { setTitle } = use(BaseContext);
+  useEffect(() => setTitle('About Components'), [setTitle]);
   return (
     <div>
       <span>React components are divided into container components and display components</span>

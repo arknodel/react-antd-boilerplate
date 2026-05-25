@@ -8,10 +8,10 @@ const RouterPage = React.lazy(() => import('./components/content/PageTwo/PageTwo
 const NotFound = React.lazy(() => import('./components/content/NotFound/NotFound'));
 
 export const routeUrls = {
-  home: "/",
-  vite: "/vite",
-  component: "/component",
-  router: "/router"
+  home: '/',
+  vite: '/vite',
+  component: '/component',
+  router: '/router'
 }
 
 export default () => {

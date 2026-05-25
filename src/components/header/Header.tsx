@@ -16,7 +16,7 @@ import './header.css';
 export const Header = () => {
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       alert('Search function has not been added yet...')
     }
   }

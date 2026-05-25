@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react';
-import {BaseContext} from '../../base/Base';
+import { use, useEffect } from 'react';
+import { BaseContext } from '../../base/Base';
 
 export const WebpackPage = () => {
-  const baseContext = useContext(BaseContext);
-  useEffect(() => baseContext.setTitle('About Vite'));
+  const { setTitle } = use(BaseContext);
+  useEffect(() => setTitle('About Vite'), [setTitle]);
   const code = `
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
